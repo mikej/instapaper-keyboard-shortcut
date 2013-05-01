@@ -1,0 +1,39 @@
+{
+ 
+  "manifest_version": 2,
+ 
+  "name": "Instapaper Keyboard Shortcut",
+  "description": "Adds a keyboard shortcut for adding the current page to Instapaper's Read Later list",
+  "version": "1.0",
+ 
+  "background": {
+    "scripts": ["bookmark.js"],
+    "persistent": true
+  },
+ 
+  "permissions": [
+    "tabs"
+  ],
+ 
+  "icons": { "16": "img/instapaper-16.png",
+             "48": "img/instapaper-48.png",
+            "128": "img/instapaper-128.png" },  
+ 
+  "commands": {
+    "read-later-with-instapaper": {
+      "suggested_key": {
+        "default": "Alt+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Read Later with Instapaper"
+    }
+  },
+ 
+  "content_scripts": [
+    {
+      "js": ["contentscript.js"],
+      "matches": [ "http://*/*", "https://*/*" ]
+    }
+  ]
+ 
+}
